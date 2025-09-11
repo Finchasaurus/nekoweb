@@ -1,0 +1,9 @@
+{
+	"posts": [
+		{
+			"title": "Test blog post",
+			"description": "This is a test blog post.",
+			"id": "test-blog-post"
+		}
+	]
+}
