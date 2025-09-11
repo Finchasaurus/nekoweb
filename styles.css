@@ -59,19 +59,33 @@ nav a:not(:last-child) {
 }
 
 nav a {
-  font-weight: 400;
-  text-align: center;
-  flex-basis: 16.66%;
-  padding: 0.5rem;
+	font-weight: 400;
+	text-align: center;
+	flex-basis: 16.66%;
+	padding: 0.5rem;
 }
 
-nav a:hover { color: white; }
-nav a:nth-child(1):hover { background-color: #FF5584; }
-nav a:nth-child(2):hover { background-color: #FFA361; }
-nav a:nth-child(3):hover { background-color: #FDDD70; }
-nav a:nth-child(4):hover { background-color: #A4D25E; }
-nav a:nth-child(5):hover { background-color: #2CA6D6; }
-nav a:nth-child(6):hover { background-color: #7F76C7; }
+nav a:hover {
+	color: white;
+}
+nav a:nth-child(1):hover {
+	background-color: #ff5584;
+}
+nav a:nth-child(2):hover {
+	background-color: #ffa361;
+}
+nav a:nth-child(3):hover {
+	background-color: #fddd70;
+}
+nav a:nth-child(4):hover {
+	background-color: #a4d25e;
+}
+nav a:nth-child(5):hover {
+	background-color: #2ca6d6;
+}
+nav a:nth-child(6):hover {
+	background-color: #7f76c7;
+}
 
 section.banner {
 	background-color: var(--accent-color);
@@ -190,4 +204,86 @@ img {
 	width: 100%;
 	height: 250px;
 	border: var(--accent-color) solid 1px;
+}
+
+/* Mobile support */
+@media (max-width: 768px) {
+	body {
+		width: 100%;
+		margin: 0;
+	}
+
+	main {
+		width: 100%;
+		outline: none;
+	}
+
+	header {
+		flex-direction: column;
+		font-size: 5ch; /* smaller for small screens */
+		text-align: center;
+	}
+
+	nav {
+		flex-direction: column;
+		outline: none;
+	}
+
+	nav a {
+		flex-basis: auto;
+		padding: 0.5rem 0;
+		border: none;
+	}
+
+	nav a:not(:last-child) {
+		border-bottom: var(--accent-color) 1px solid;
+	}
+
+	.content {
+		flex-direction: column;
+	}
+
+	.content .left,
+	.content .right {
+		width: 100%;
+	}
+
+	.left div {
+		height: 150px;
+	}
+
+	.right div {
+		height: 80px;
+	}
+
+	.scrolling-text {
+		font-size: 0.9rem;
+	}
+
+	figure {
+		align-items: center;
+	}
+
+	figure img {
+		width: 80%;
+	}
+
+	figure figcaption {
+		text-align: center;
+	}
+
+	footer nav {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	footer nav a {
+		border: none;
+		padding: 0.25rem 0;
+	}
+
+	footer nav a:not(:first-child) {
+		border-left: none;
+		border-top: 1px solid white;
+	}
 }
