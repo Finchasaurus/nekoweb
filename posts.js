@@ -1,5 +1,7 @@
 const postsContainer = document.querySelector(".posts");
-const postsLink = "https://raw.githubusercontent.com/Finchasaurus/nekoweb/refs/heads/master/posts/navigation.json";
+let postsLink = "https://raw.githubusercontent.com/Finchasaurus/nekoweb/refs/heads/master/posts/navigation.json";
+
+postsLink = "/posts/navigation.json";
 
 fetch(postsLink)
 	.then((res) => res.json())
@@ -18,10 +20,12 @@ fetch(postsLink)
 			postEl.href = `/posts/${post.id}`;
 			postEl.title = `${post.title} - ${post.description}`;
 			postEl.innerHTML = `
+            <div>
                 <h3>${post.title}</h3>
                 <p>${post.description}</p>
                 <p><small>${post.date} | Tags: ${post.tags.join(", ")}</small></p>
-            `;
+            </div>
+			`;
 			if (image) {
 				const imgEl = document.createElement("img");
 				imgEl.src = image;

@@ -171,18 +171,21 @@ footer nav a:not(:first-child) {
 	margin: 0;
 	outline: var(--accent-color) solid 1px;
 	padding: 0.5rem;
-	transition: all 0.3s ease; /* Smooth transition for all changes */
-	cursor: pointer; /* Changes cursor on hover */
+	transition: all 0.3s ease;
 	background: var(--container-color);
 	color: var(--accent-color);
+
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
 }
 
 .post:hover {
 	background: var(--accent-color);
 	color: white;
-	transform: translateY(-5px) scale(1.02); /* Slight lift and scale */
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Adds depth */
-	outline-color: transparent; /* Optional: remove harsh outline on hover */
+	transform: translateY(-5px) scale(1.02);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+	outline-color: transparent;
 }
 
 .post h3 {
