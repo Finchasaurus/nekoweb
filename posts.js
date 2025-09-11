@@ -30,6 +30,7 @@ fetch(postsLink)
 				const imgEl = document.createElement("img");
 				imgEl.src = image;
 				imgEl.alt = title;
+				imgEl.className = "accent";
 				postEl.prepend(imgEl);
 			}
 			postsContainer.appendChild(postEl);

@@ -2,6 +2,7 @@ const navLinks = document.querySelectorAll("nav a");
 
 const linkIndexMap = {
 	"": 0,
+	index: 0,
 	about: 1,
 	favorites: 2,
 	blog: 3,
@@ -32,7 +33,10 @@ const banners = [
 const defaultBanner = "Meowbyte rocks!";
 
 const bannerText = document.querySelector(".banner .scrolling-text");
-const accentImages = document.querySelectorAll("img.accent");
+
+function getAccentImages() {
+	return document.querySelectorAll("img.accent");
+}
 
 function apply(index) {
 	const color = index !== undefined ? colors[index] : defaultColor;
@@ -43,13 +47,14 @@ function apply(index) {
 
 	if (bannerText) bannerText.textContent = banner;
 
-	accentImages.forEach((img) => (img.style.filter = filter));
+	getAccentImages().forEach((img) => (img.style.filter = filter));
 }
 
 apply();
 navLinks.forEach((link) => {
 	let href = link.getAttribute("href").trim();
 	if (href.endsWith("/")) href = href.slice(0, -1);
+	if (href.endsWith(".html")) href = href.slice(0, -5);
 	const index = linkIndexMap[href] ?? -1;
 
 	if (index === -1) return;
