@@ -22,7 +22,7 @@ fetch(postsLink)
 			postEl.innerHTML = `
             <div>
                 <h3>${post.title}</h3>
-                <p>${post.description}</p>
+                <p class="description">${post.description}</p>
                 <p><small>${post.date} | Tags: ${post.tags.join(", ")}</small></p>
             </div>
 			`;
@@ -30,7 +30,6 @@ fetch(postsLink)
 				const imgEl = document.createElement("img");
 				imgEl.src = image;
 				imgEl.alt = title;
-				imgEl.style.maxWidth = "100%";
 				postEl.prepend(imgEl);
 			}
 			postsContainer.appendChild(postEl);

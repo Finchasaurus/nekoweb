@@ -171,13 +171,14 @@ footer nav a:not(:first-child) {
 	margin: 0;
 	outline: var(--accent-color) solid 1px;
 	padding: 0.5rem;
-	transition: all 0.3s ease;
 	background: var(--container-color);
 	color: var(--accent-color);
 
 	display: flex;
 	flex-direction: row;
 	align-items: stretch;
+
+	height: 100px;
 }
 
 .post:hover {
@@ -188,11 +189,35 @@ footer nav a:not(:first-child) {
 	outline-color: transparent;
 }
 
-.post h3 {
+.post:hover img {
+	border-color: white;
+	filter: brightness(0) invert(1);
+}
+
+.post div {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 0.5rem;
+}
+
+.post div .description {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	white-space: normal;
+}
+
+.post img {
+	aspect-ratio: 1;
+	object-fit: contain;
+	border: var(--accent-color) solid 1px;
+}
+
+.post div h3 {
 	margin: 0;
 }
 
-.post p {
+.post div p {
 	margin: 0;
 }
 
