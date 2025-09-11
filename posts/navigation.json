@@ -1,9 +1,11 @@
 {
 	"posts": [
 		{
-			"title": "Test blog post",
+			"id": "test-blog-post",
+			"title": "Test Blog Post",
 			"description": "This is a test blog post.",
-			"id": "test-blog-post"
+			"date": "2025-09-11",
+			"tags": ["test", "blog"]
 		}
 	]
 }

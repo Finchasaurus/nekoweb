@@ -62,5 +62,3 @@ navLinks.forEach((link) => {
 		apply();
 	});
 });
-
-const postsContainer = document.querySelector(".posts");
