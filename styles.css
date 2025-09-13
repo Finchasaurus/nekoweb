@@ -68,24 +68,6 @@ nav a {
 nav a:hover {
 	color: white;
 }
-nav a:nth-child(1):hover {
-	background-color: #ff5584;
-}
-nav a:nth-child(2):hover {
-	background-color: #ffa361;
-}
-nav a:nth-child(3):hover {
-	background-color: #fddd70;
-}
-nav a:nth-child(4):hover {
-	background-color: #a4d25e;
-}
-nav a:nth-child(5):hover {
-	background-color: #2ca6d6;
-}
-nav a:nth-child(6):hover {
-	background-color: #7f76c7;
-}
 
 section.banner {
 	background-color: var(--accent-color);
