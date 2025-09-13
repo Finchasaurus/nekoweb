@@ -17,7 +17,7 @@ fetch(postsLink)
 
 			const postEl = document.createElement("a");
 			postEl.className = "post";
-			postEl.href = `/posts/${post.id}`;
+			postEl.href = `/post.html?id=${post.id}`;
 			postEl.title = `${post.title} - ${post.description}`;
 			postEl.innerHTML = `
             <div>
