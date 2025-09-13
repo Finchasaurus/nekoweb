@@ -1,3 +1,5 @@
+import { CONFIG, ENV } from "./config.js";
+
 const navLinks = document.querySelectorAll("nav a");
 
 const linkIndexMap = {
@@ -54,15 +56,32 @@ function stripPath(path) {
 	return path.replace(/^\/|\/$|\.html$/g, "");
 }
 
-let path = window.location.pathname;
-path = stripPath(path);
-let pathIndex = linkIndexMap[path];
-if (pathIndex !== undefined) {
-	colors[0] = colors[pathIndex];
-	colorFilters[0] = colorFilters[pathIndex];
-	banners[0] = banners[pathIndex];
+function getDefaultBannerReplacement(path) {
+	switch (path) {
+		case "":
+		case "index": {
+			return fetch(CONFIG[ENV].myStatusLink).then((response) => response.text());
+		}
+		default:
+			return banners[linkIndexMap[path]];
+	}
 }
 
+function populateDefaults() {
+	let path = window.location.pathname;
+	path = stripPath(path);
+	let pathIndex = linkIndexMap[path];
+	if (pathIndex !== undefined) {
+		colors[0] = colors[pathIndex];
+		colorFilters[0] = colorFilters[pathIndex];
+		getDefaultBannerReplacement(path).then((banner) => {
+			banners[0] = banner;
+			apply();
+		});
+	}
+}
+
+populateDefaults();
 apply();
 navLinks.forEach((link) => {
 	let href = link.getAttribute("href");
