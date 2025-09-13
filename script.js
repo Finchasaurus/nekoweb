@@ -19,8 +19,8 @@ const colorFilters = [
 	"brightness(0) saturate(100%) invert(83%) sepia(36%) saturate(6678%) hue-rotate(164deg) brightness(87%) contrast(93%)",
 	"brightness(0) saturate(100%) invert(62%) sepia(6%) saturate(3878%) hue-rotate(206deg) brightness(79%) contrast(97%)",
 ];
-const defaultColor = "black";
-const defaultColorFilter = "brightness(0) saturate(100%)";
+let defaultColor = "black";
+let defaultColorFilter = "brightness(0) saturate(100%)";
 
 const banners = [
 	"Meowbox rocks!",
@@ -48,6 +48,16 @@ function apply(index) {
 	if (bannerText) bannerText.textContent = banner;
 
 	getAccentImages().forEach((img) => (img.style.filter = filter));
+}
+
+let path = window.location.pathname;
+path = path.replace(/\/$/, "");
+path = path.replace(".html", "");
+path = path.substring(path.lastIndexOf("/") + 1);
+let pathIndex = linkIndexMap[path];
+if (pathIndex !== undefined) {
+	defaultColor = colors[pathIndex];
+	defaultColorFilter = colorFilters[pathIndex];
 }
 
 apply();
