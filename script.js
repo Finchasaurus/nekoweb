@@ -45,6 +45,9 @@ function apply(index = 0) {
 	}
 
 	document.querySelectorAll("img.accent").forEach((img) => (img.style.filter = filter));
+	if (index === 0) {
+		document.querySelectorAll(".filter-remove").forEach((img) => (img.style.filter = ""));
+	}
 }
 
 function stripPath(path) {

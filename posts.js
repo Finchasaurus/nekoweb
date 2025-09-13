@@ -30,7 +30,7 @@ fetch(postsLink)
 				const imgEl = document.createElement("img");
 				imgEl.src = image;
 				imgEl.alt = title;
-				imgEl.className = "accent";
+				imgEl.className = "accent filter-remove";
 				postEl.prepend(imgEl);
 			}
 			postsContainer.appendChild(postEl);
