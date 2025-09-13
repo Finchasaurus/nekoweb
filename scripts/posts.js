@@ -1,9 +1,8 @@
+import { CONFIG, ENV } from "./config.js";
+
 const postsContainer = document.querySelector(".posts");
-let postsLink = "https://raw.githubusercontent.com/Finchasaurus/nekoweb/refs/heads/master/posts/navigation.json";
 
-postsLink = "/posts/navigation.json";
-
-fetch(postsLink)
+fetch(CONFIG[ENV].postsLink)
 	.then((res) => res.json())
 	.then((data) => {
 		if (!data.posts) return;
