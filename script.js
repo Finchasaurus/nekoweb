@@ -39,7 +39,8 @@ function apply(index = 0) {
 
 	document.documentElement.style.setProperty("--accent-color", color);
 
-	if (document.querySelector(".banner .scrolling-text")) {
+	const bannerText = document.querySelector(".banner .scrolling-text");
+	if (bannerText) {
 		bannerText.textContent = banner;
 	}
 
