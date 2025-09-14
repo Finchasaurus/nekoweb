@@ -4,29 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="styles.css" />
-		<link rel="icon" type="image/x-icon" href="shinji.png" />
+		<link rel="stylesheet" href="styles/styles.css" />
+		<link rel="icon" type="image/x-icon" href="assets/shinji.png" />
 		<title>Meowbyte</title>
 	</head>
 	<body>
 		<main>
-			<header>
-				<span>
-					Meow<span title="Why did the byte break up with the bit? Because it needed some space!">byte</span>
-				</span>
-				<a href="index.html" title="Meow" class="icon">
-					<img src="cat.svg" class="accent" />
-				</a>
-			</header>
-			<nav>
-				<a href="index.html" title="Go the the homepage">Home</a>
-				<a href="about.html" title="Learn more about me">About</a>
-				<a href="favorites.html" title="All about my favorite things">Favorites</a>
-				<a href="blog.html" title="Blog posts and project updates">Blog</a>
-				<a href="politics.html" title="Yes, politics. I'm a leftist. Deal with it.">Politics</a>
-				<a href="test.html" title="I dont know what to put here">Test</a>
-				<a href="contact.html" title="Get in touch">Contact</a>
-			</nav>
+			<header class="populate"></header>
+			<nav class="populate"></nav>
 			<section class="banner">
 				<div class="scrolling-text">Meowbyte rocks!</div>
 			</section>
@@ -39,20 +24,10 @@
 					<div id="post-content"></div>
 				</article>
 			</section>
-			<footer>
-				<p>© 2025 Meowbyte. All rights reserved.</p>
-				<nav>
-					<a href="index.html">Home</a>
-					<a href="about.html">About</a>
-					<a href="favorites.html">Favorites</a>
-					<a href="blog.html">Blog</a>
-					<a href="politics.html">Politics</a>
-					<a href="contact.html">Contact</a>
-				</nav>
-				<p>Meowbyte - Where code meets cats 🐱</p>
-			</footer>
+			<footer class="populate"></footer>
 		</main>
-		<script src="script.js"></script>
-		<script src="post.js"></script>
+		<script src="scripts/populate.js"></script>
+		<script src="scripts/navigation.js" type="module"></script>
+		<script src="scripts/post.js" type="module"></script>
 	</body>
 </html>

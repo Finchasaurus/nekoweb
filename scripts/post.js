@@ -1,7 +1,9 @@
+import { CONFIG, ENV } from "./config.js";
+
 const params = new URLSearchParams(window.location.search);
 const postId = params.get("id");
 
-fetch("/posts/navigation.json")
+fetch(CONFIG[ENV].postsLink)
 	.then((res) => res.json())
 	.then((data) => {
 		const post = data.posts.find((p) => p.id === postId);
