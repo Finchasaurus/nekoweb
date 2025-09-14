@@ -1,18 +1,19 @@
 import { CONFIG, ENV } from "./config.js";
 
 const linkIndexMap = {
-	"": 0,
-	index: 0,
-	about: 1,
-	favorites: 2,
-	blog: 3,
-	politics: 4,
-	test: 5,
-	contact: 6,
+	"": 1,
+	index: 1,
+	about: 2,
+	favorites: 3,
+	blog: 4,
+	politics: 5,
+	test: 6,
+	contact: 7,
 };
 
-const colors = ["black", "#FF5584", "#FFA361", "#FDDD70", "#A4D25E", "#2CA6D6", "#7F76C7"];
+const colors = ["black", "black", "#FF5584", "#FFA361", "#FDDD70", "#A4D25E", "#2CA6D6", "#7F76C7"];
 const colorFilters = [
+	"brightness(0) saturate(100%)",
 	"brightness(0) saturate(100%)",
 	"brightness(0) saturate(100%) invert(49%) sepia(76%) saturate(2533%) hue-rotate(313deg) brightness(102%) contrast(104%)",
 	"brightness(0) saturate(100%) invert(79%) sepia(14%) saturate(2325%) hue-rotate(321deg) brightness(100%) contrast(101%)",
@@ -23,6 +24,7 @@ const colorFilters = [
 ];
 
 const banners = [
+	"Meowbyte rocks!",
 	"Meowbyte rocks!",
 	"Meowbox rocks!",
 	"Meowbit rocks!",
@@ -54,7 +56,7 @@ function stripPath(path) {
 	return path.replace(/^\/|\/$|\.html$/g, "");
 }
 
-function getDefaultBannerReplacement(path) {
+async function getDefaultBannerReplacement(path) {
 	switch (path) {
 		case "":
 		case "index": {
