@@ -81,15 +81,13 @@ function populateDefaults() {
 	}
 }
 
-populateDefaults();
-apply();
-
-document.querySelectorAll("nav a").forEach((link) => {
+function manageHover(link) {
 	let href = link.getAttribute("href");
 	href = stripPath(href);
 	const index = linkIndexMap[href];
 
 	link.addEventListener("mouseenter", () => {
+		console.log(link);
 		apply(index);
 		link.style.backgroundColor = colors[index];
 	});
@@ -98,4 +96,25 @@ document.querySelectorAll("nav a").forEach((link) => {
 		apply();
 		link.style.backgroundColor = "";
 	});
-});
+}
+
+function applyHoveredIfAny() {
+	const hoveredLink = Array.from(document.querySelectorAll("nav a")).find((link) => link.matches(":hover"));
+	if (!hoveredLink) {
+		return;
+	}
+
+	let href = hoveredLink.getAttribute("href");
+	href = stripPath(href);
+	const index = linkIndexMap[href];
+	if (index !== undefined) {
+		apply(index);
+		hoveredLink.style.backgroundColor = colors[index];
+	}
+}
+
+populateDefaults();
+apply();
+applyHoveredIfAny();
+
+document.querySelectorAll("nav a").forEach(manageHover);
