@@ -1,15 +1,5 @@
 import { CONFIG, ENV } from "./config.js";
 
-const links = [
-	{ href: "index.html", title: "Go the the homepage", text: "Home" },
-	{ href: "about.html", title: "Learn more about me", text: "About" },
-	{ href: "favorites.html", title: "All about my favorite things", text: "Favorites" },
-	{ href: "blog.html", title: "Read my blog posts", text: "Blog" },
-	{ href: "politics.html", title: "My political views and opinions", text: "Politics" },
-	{ href: "test.html", title: "Testing things out", text: "Test" },
-	{ href: "contact.html", title: "Get in touch with me", text: "Contact" },
-];
-
 const linkIndexMap = {
 	"": 0,
 	index: 0,
@@ -91,16 +81,6 @@ function populateDefaults() {
 
 populateDefaults();
 apply();
-
-document.querySelectorAll("nav.populate").forEach((nav) => {
-	links.forEach((link) => {
-		const a = document.createElement("a");
-		a.href = link.href;
-		a.title = link.title;
-		a.textContent = link.text;
-		nav.appendChild(a);
-	});
-});
 
 document.querySelectorAll("nav a").forEach((link) => {
 	let href = link.getAttribute("href");
