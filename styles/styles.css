@@ -149,7 +149,7 @@ footer nav a:not(:first-child) {
 	overflow: hidden;
 }
 
-.posts {
+.content .posts {
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
