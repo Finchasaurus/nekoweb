@@ -43,3 +43,34 @@ document.querySelectorAll("nav.populate").forEach((nav) => {
 		nav.appendChild(a);
 	});
 });
+
+const scrollingContentStr = `
+<span class="tech-icon"><i class="devicon-typescript-plain"></i></span>
+<span class="tech-icon"><i class="devicon-javascript-plain"></i></span>
+<span class="tech-icon"><i class="devicon-java-plain"></i></span>
+<span class="tech-icon"><i class="devicon-json-plain"></i></span>
+<span class="tech-icon"><i class="devicon-lua-plain"></i></span>
+<span class="tech-icon"><img src="assets/luau.png" alt="Luau Logo" class="accent"/></span>
+<span class="tech-icon"><i class="devicon-blender-original"></i></span>
+<span class="tech-icon"><i class="devicon-c-original"></i></span>
+<span class="tech-icon"><i class="devicon-cplusplus-plain"></i></span>
+<span class="tech-icon"><i class="devicon-csharp-plain"></i></span>
+<span class="tech-icon"><i class="devicon-clion-plain"></i></span>
+<span class="tech-icon"><i class="devicon-cmake-plain"></i></span>
+<span class="tech-icon"><i class="devicon-firefox-plain"></i></span>
+<span class="tech-icon"><i class="devicon-git-plain"></i></span>
+<span class="tech-icon"><i class="devicon-github-original"></i></span>
+<span class="tech-icon"><i class="devicon-linux-plain"></i></span>
+<span class="tech-icon"><i class="devicon-markdown-original"></i></span>
+<span class="tech-icon"><i class="devicon-npm-original-wordmark"></i></span>
+<span class="tech-icon"><i class="devicon-opengl-plain"></i></span>
+<span class="tech-icon"><i class="devicon-vulkan-original"></i></span>
+<span class="tech-icon"><i class="devicon-react-original"></i></span>
+<span class="tech-icon"><i class="devicon-unity-plain"></i></span>
+<span class="tech-icon"><i class="devicon-unrealengine-original"></i></span>
+<span class="tech-icon"><i class="devicon-vscode-plain"></i></span>
+`;
+
+document.querySelectorAll(".populate.scrolling-content").forEach((container) => {
+	container.innerHTML = scrollingContentStr;
+});
