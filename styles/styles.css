@@ -145,6 +145,11 @@ footer nav a:not(:first-child) {
 }
 
 .content .right {
+	display: block;
+	overflow: hidden;
+}
+
+.posts {
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
@@ -269,7 +274,7 @@ header.sub {
 
 .info div {
 	display: grid;
-	grid-auto-columns: minmax(0, 1fr);
+	grid-auto-columns: minmax(0, 100px);
 	grid-auto-flow: column;
 	overflow: hidden;
 }
@@ -280,6 +285,11 @@ header.sub {
 
 .info div p.bold {
 	font-weight: 600;
+}
+
+.info div p.small {
+	font-size: 0.9rem;
+	margin: 0;
 }
 
 .random-child {
@@ -326,8 +336,10 @@ header.sub {
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
+	filter: brightness(0) invert(1);
 }
 
-.right article {
-	min-width: 100%;
+.static-banner {
+	background-color: var(--accent-color);
+	color: white;
 }

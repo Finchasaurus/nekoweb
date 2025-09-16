@@ -50,7 +50,7 @@ const scrollingContentStr = `
 <span class="tech-icon"><i class="devicon-java-plain"></i></span>
 <span class="tech-icon"><i class="devicon-json-plain"></i></span>
 <span class="tech-icon"><i class="devicon-lua-plain"></i></span>
-<span class="tech-icon"><img src="assets/luau.png" alt="Luau Logo" class="accent"/></span>
+<span class="tech-icon"><img src="assets/luau.png" alt="Luau Logo"/></span>
 <span class="tech-icon"><i class="devicon-blender-original"></i></span>
 <span class="tech-icon"><i class="devicon-c-original"></i></span>
 <span class="tech-icon"><i class="devicon-cplusplus-plain"></i></span>
