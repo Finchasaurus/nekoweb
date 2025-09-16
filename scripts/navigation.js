@@ -87,7 +87,6 @@ function manageHover(link) {
 	const index = linkIndexMap[href];
 
 	link.addEventListener("mouseenter", () => {
-		console.log(link);
 		apply(index);
 		link.style.backgroundColor = colors[index];
 	});
