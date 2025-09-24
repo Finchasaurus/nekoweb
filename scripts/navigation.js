@@ -46,11 +46,27 @@ function stripPath(path) {
 	return path.replace(/^\/|\/$|\.html$/g, "");
 }
 
+async function fetchStatusCafeBanner() {
+	try {
+		const response = await fetch("https://status.cafe/users/meowbyte/status.json");
+		const data = await response.json();
+
+		if (!data.content || !data.content.length) {
+			return "No status yet.";
+		}
+
+		return `${data.author} ${data.face} ${data.timeAgo}: ${data.content}`;
+	} catch (e) {
+		return "Meowbyte rocks!";
+	}
+}
+
+
 async function getDefaultBannerReplacement(path) {
 	switch (path) {
 		case "":
 		case "index": {
-			return fetch(CONFIG[ENV].myStatusLink).then((response) => response.text());
+			return fetchStatusCafeBanner();
 		}
 		default:
 			return banners[linkIndexMap[path]];
