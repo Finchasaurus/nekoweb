@@ -11,17 +11,12 @@ const linkIndexMap = {
 	contact: 7,
 };
 
-const colors = ["black", "black", "#FF5584", "#FFA361", "#FDDD70", "#A4D25E", "#2CA6D6", "#7F76C7"];
-const colorFilters = [
-	"brightness(0) saturate(100%)",
-	"brightness(0) saturate(100%)",
-	"brightness(0) saturate(100%) invert(49%) sepia(76%) saturate(2533%) hue-rotate(313deg) brightness(102%) contrast(104%)",
-	"brightness(0) saturate(100%) invert(79%) sepia(14%) saturate(2325%) hue-rotate(321deg) brightness(100%) contrast(101%)",
-	"brightness(0) saturate(100%) invert(95%) sepia(80%) saturate(847%) hue-rotate(321deg) brightness(102%) contrast(98%)",
-	"brightness(0) saturate(100%) invert(83%) sepia(35%) saturate(614%) hue-rotate(32deg) brightness(90%) contrast(92%)",
-	"brightness(0) saturate(100%) invert(83%) sepia(36%) saturate(6678%) hue-rotate(164deg) brightness(87%) contrast(93%)",
-	"brightness(0) saturate(100%) invert(62%) sepia(6%) saturate(3878%) hue-rotate(206deg) brightness(79%) contrast(97%)",
-];
+function getCssColor(index) {
+  return getComputedStyle(document.documentElement).getPropertyValue(`--accent-color-${index}`).trim();
+}
+function getCssFilter(index) {
+  return getComputedStyle(document.documentElement).getPropertyValue(`--accent-filter-${index}`).trim();
+}
 
 const banners = [
 	"Meowbyte rocks!",
@@ -35,13 +30,13 @@ const banners = [
 ];
 
 function apply(index = 0) {
-	const color = colors[index];
+	const color = getCssColor(index);
 	const banner = banners[index];
-	const filter = colorFilters[index];
+	const filter = getCssFilter(index);
 
-	document.documentElement.style.setProperty("--accent-color", color);
+	document.documentElement.style.setProperty("--accent-color-main", color);
 
-	const bannerText = document.querySelector(".banner .scrolling-text");
+	const bannerText = document.querySelector("banner scrolling-text");
 	if (bannerText) {
 		bannerText.textContent = banner;
 	}
@@ -72,8 +67,9 @@ function populateDefaults() {
 	path = stripPath(path);
 	let pathIndex = linkIndexMap[path];
 	if (pathIndex !== undefined) {
-		colors[0] = colors[pathIndex];
-		colorFilters[0] = colorFilters[pathIndex];
+		document.documentElement.style.setProperty("--accent-color-0", getCssColor(pathIndex));
+    	document.documentElement.style.setProperty("--accent-filter-0", getCssFilter(pathIndex));
+
 		getDefaultBannerReplacement(path).then((banner) => {
 			banners[0] = banner;
 			apply();
@@ -88,7 +84,7 @@ function manageHover(link) {
 
 	link.addEventListener("mouseenter", () => {
 		apply(index);
-		link.style.backgroundColor = colors[index];
+		link.style.backgroundColor = getCssColor(index);
 	});
 
 	link.addEventListener("mouseleave", () => {
@@ -108,7 +104,7 @@ function applyHoveredIfAny() {
 	const index = linkIndexMap[href];
 	if (index !== undefined) {
 		apply(index);
-		hoveredLink.style.backgroundColor = colors[index];
+		hoveredLink.style.backgroundColor = getCssColor(index);
 	}
 }
 

@@ -1,77 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="styles/styles.css" />
-		<link rel="icon" type="image/x-icon" href="assets/shinji.png" />
-		<title>Meowbyte</title>
-	</head>
-	<body>
-		<main>
-			<header class="populate main"></header>
-			<nav class="populate"></nav>
-			<section class="banner">
-				<div class="scrolling-text">Meowbyte rocks!</div>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="styles/styles.css" />
+	<link rel="icon" type="image/x-icon" href="assets/shinji.png" />
+	<title>Meowbyte</title>
+</head>
+
+<body>
+	<main>
+		<main-header class="populate header"></main-header>
+		<nav class="populate navigation"></nav>
+		<banner><scrolling-text></scrolling-text></banner>
+		<content>
+			<sidebar>
+				<figure>
+					<img src="assets/shinji.png" aspect-one class="accent" />
+					<a href="evangelion">
+						<figcaption>Shinji Ikari</figcaption>
+					</a>
+				</figure>
+				<figure>
+					<figcaption>Writing a longish test sentence to see wrapping lmao</figcaption>
+					<form method="post" action="https://poll.pollcode.com/55176963">
+						<radio-group vertical role="radiogroup">
+							<label><input type="radio" name="answer" value="1" id="yes" />Yes</label>
+							<label><input type="radio" name="answer" value="2" id="no" />No</label>
+						</radio-group>
+						<radio-group horizontal role="radiogroup" style="text-align: center;">
+							<label><input type="submit" />Submit</label>
+							<label><input type="submit" name="view" />View</label>
+						</radio-group>
+					</form>
+				</figure>
+			</sidebar>
+			<section>
+				<h1>Welcome to Meowbyte</h1>
+				<p>
+					Hallo! I'm Finch, a 21-year-old developer based in Salt Lake City, Utah. I have 5 different
+					A-identities: Aromantic, Asexual, Agender, Autistic, and ADHD I love cats, video games, learning,
+					programming, and all things computer science (especially computer graphics).
+				</p>
+				<p>
+					This site is a fun side project where I share my thoughts, projects, and random musings while
+					practicing my web dev skills. Feel free to poke around and discover some hidden surprises and silly
+					things.
+				</p>
+				<p>
+					I'm trying to limit my reliance on javascript; I encourage anyone to poke around and help me figure
+					out ways to use less.
+				</p>
 			</section>
-			<section class="content">
-				<div class="left">
-					<figure>
-						<img src="assets/shinji.png" class="accent" />
-						<a href="evangelion">
-							<figcaption>Shinji Ikari</figcaption>
-						</a>
-					</figure>
-					<div class="pollcode">
-						<form method="post" action="https://poll.pollcode.com/55176963">
-							<div
-								style="
-									background-color: #eeeeee;
-									padding: 2px;
-									width: 175px;
-									font-family: Arial;
-									font-size: small;
-									color: #000000;
-								"
-							>
-								<div style="padding: 2px 0px 4px 2px"><strong>Test</strong></div>
-								<input
-									type="radio"
-									name="answer"
-									value="1"
-									id="answer551769631"
-									style="float: left"
-								/><label for="answer551769631" style="float: left; width: 150px">Yes</label>
-								<div style="clear: both; height: 2px"></div>
-								<input
-									type="radio"
-									name="answer"
-									value="2"
-									id="answer551769632"
-									style="float: left"
-								/><label for="answer551769632" style="float: left; width: 150px">No</label>
-								<div style="clear: both; height: 2px"></div>
-								<div align="center" style="padding: 3px">
-									<input type="submit" value=" Vote " />&nbsp;<input
-										type="submit"
-										name="view"
-										value=" View "
-									/>
-								</div>
-								<div align="right" style="font-size: 10px">
-									pollcode.com <a href="https://pollcode.com/">free polls</a>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-				<div class="right posts"></div>
-			</section>
-			<footer class="populate"></footer>
-		</main>
-		<script src="scripts/populate.js"></script>
-		<script src="scripts/navigation.js" type="module"></script>
-		<script src="scripts/posts.js" type="module"></script>
-	</body>
+		</content>
+		<footer class="populate footer"></footer>
+	</main>
+	<script src="scripts/populate.js"></script>
+	<script src="scripts/navigation.js" type="module"></script>
+	<!-- <script src="scripts/posts.js" type="module"></script> -->
+</body>
+
 </html>

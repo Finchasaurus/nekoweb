@@ -1,4 +1,4 @@
-document.querySelectorAll("header.populate").forEach((header) => {
+document.querySelectorAll(".populate.header").forEach((header) => {
 	const brand = document.createElement("span");
 	brand.innerHTML = `Meow<span title="Why did the byte break up with the bit? Because it needed some space!">byte</span>`;
 
@@ -16,12 +16,12 @@ document.querySelectorAll("header.populate").forEach((header) => {
 	header.appendChild(iconLink);
 });
 
-document.querySelectorAll("footer.populate").forEach((footer) => {
+document.querySelectorAll(".populate.footer").forEach((footer) => {
 	footer.innerHTML = `
 		<p>© 2025 Meowbyte. All rights reserved.</p>
-		<nav class="populate"></nav>
+		<nav class="populate navigation"></nav>
 		<p>Meowbyte - Where code meets cats 🐱</p>
-	`;
+		`;
 });
 
 const links = [
@@ -34,7 +34,7 @@ const links = [
 	{ href: "contact.html", title: "Get in touch with me", text: "Contact" },
 ];
 
-document.querySelectorAll("nav.populate").forEach((nav) => {
+document.querySelectorAll(".populate.navigation").forEach((nav) => {
 	links.forEach((link) => {
 		const a = document.createElement("a");
 		a.href = link.href;
