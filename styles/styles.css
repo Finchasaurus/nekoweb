@@ -221,6 +221,7 @@ banner {
 	overflow: hidden;
 	display: flex;
 	align-items: center;
+	height: 5%
 }
 
 scrolling-text {
