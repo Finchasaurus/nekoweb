@@ -46,6 +46,13 @@
 	--sidebar-width: 189px;
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+
 body {
 	background: var(--background-color);
 	margin: 0;
@@ -55,11 +62,6 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-
-	@media (width <=500px) {
-		flex-direction: column;
-		align-items: center;
-	}
 }
 
 main {
@@ -124,7 +126,7 @@ main-header {
 		top: 9ch;
 		left: 0;
 		right: 0;
-		height: 100%;
+		height: 90%;
 
 		& a {
 			display: flex;
