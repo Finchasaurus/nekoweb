@@ -55,17 +55,28 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+
+	@media (width <=500px) {
+		flex-direction: column;
+		align-items: center;
+	}
 }
 
 main {
+	position: relative;
+
 	background: var(--container-color);
-	outline: var(--accent-border);
+	border: var(--accent-border);
 
 	width: 90ch;
 	min-height: 100lvh;
 
 	display: flex;
 	flex-direction: column;
+
+	@media (width <=500px) {
+		width: 100lvw;
+	}
 }
 
 a {
@@ -89,6 +100,57 @@ main-header {
 		& img {
 			height: var(--icon-img-height);
 		}
+	}
+
+	@media (width <=500px) {
+		font-size: 6ch;
+		padding: var(--spacing-sm);
+
+		& .icon {
+			& img {
+				height: 3rem;
+			}
+		}
+	}
+}
+
+@media (width <=500px) {
+	.menu {
+		background-color: var(--container-color);
+		visibility: hidden;
+		position: absolute;
+		flex-direction: column;
+		z-index: 100;
+		top: 9ch;
+		left: 0;
+		right: 0;
+		height: 100%;
+
+		& a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: var(--accent-border)
+		}
+	}
+
+	body:has(#cat-toggle:checked) .menu {
+		visibility: visible;
+	}
+}
+
+break {
+	display: block;
+	background-color: var(--accent-color-main);
+
+	&[horizontal] {
+		width: 100%;
+		height: 1px;
+	}
+
+	&[vertical] {
+		width: 1px;
+		height: 100%;
 	}
 }
 
@@ -146,6 +208,7 @@ content {
 	overflow: hidden;
 	flex: 1;
 
+
 	&>* {
 		padding: var(--spacing-sm);
 		flex: 1;
@@ -158,6 +221,21 @@ content {
 		flex-direction: column;
 		gap: var(--spacing-sm);
 		border-right: var(--accent-border);
+
+		@media (width <=500px) {
+			display: none;
+		}
+	}
+
+	&>section {
+		& h1 {
+			margin: 0;
+			padding: 0;
+		}
+
+		@media (width <=500px) {
+			margin: var(--spacing-sm);
+		}
 	}
 }
 
@@ -221,6 +299,10 @@ footer {
 	& a:not(:first-child) {
 		border-left: solid white var(--border-width);
 	}
+
+	& nav {
+		display: none;
+	}
 }
 
 form {
@@ -268,8 +350,7 @@ radio-group {
 		}
 
 		& input {
-			visibility: hidden;
-			position: absolute
+			display: none;
 		}
 	}
 }

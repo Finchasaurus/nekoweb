@@ -2,18 +2,27 @@ document.querySelectorAll(".populate.header").forEach((header) => {
 	const brand = document.createElement("span");
 	brand.innerHTML = `Meow<span title="Why did the byte break up with the bit? Because it needed some space!">byte</span>`;
 
-	const iconLink = document.createElement("a");
-	iconLink.href = "index.html";
-	iconLink.title = "Meow";
-	iconLink.className = "icon";
+	const checkboxId = "cat-toggle";
+	const iconWrapper = document.createElement("label");
+	iconWrapper.htmlFor = checkboxId;
+	iconWrapper.className = "icon";
+	iconWrapper.title = "Meow";
+
+	const iconCheckbox = document.createElement("input");
+	iconCheckbox.type = "checkbox";
+	iconCheckbox.id = checkboxId;
+	iconCheckbox.style.display = "none";
 
 	const iconImg = document.createElement("img");
 	iconImg.src = "assets/cat.svg";
 	iconImg.className = "accent";
-	iconLink.appendChild(iconImg);
+	iconImg.style.cursor = "pointer";
+
+	iconWrapper.appendChild(iconImg);
 
 	header.appendChild(brand);
-	header.appendChild(iconLink);
+	header.appendChild(iconCheckbox);
+	header.appendChild(iconWrapper);
 });
 
 document.querySelectorAll(".populate.footer").forEach((footer) => {
