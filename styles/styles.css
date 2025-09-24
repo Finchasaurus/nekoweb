@@ -82,37 +82,37 @@ main {
 }
 
 a {
-	position: relative;
 	color: var(--accent-color-main);
 	text-decoration: underline;
+}
 
-	&[tooltip] {
-		cursor: help;
-		text-decoration: underline dotted;
+*[tooltip] {
+	position: relative;
+	cursor: help;
+	text-decoration: underline dotted;
 
-		&::after {
-			content: attr(tooltip);
-			position: absolute;
-			bottom: 100%;
-			left: 50%;
-			transform: translateX(-50%);
-			background-color: var(--accent-color-main);
-			color: var(--accent-color-text);
-			padding: 0.3em 0.6em;
-			border-radius: 0.25em;
-			white-space: nowrap;
-			font-size: 0.8em;
-			opacity: 0;
-			pointer-events: none;
-			transition: opacity var(--transition-fast);
-			z-index: 10;
-		}
+	&::after {
+		content: attr(tooltip);
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: var(--accent-color-main);
+		color: var(--accent-color-text);
+		padding: 0.3em 0.6em;
+		border-radius: 0.25em;
+		white-space: nowrap;
+		font-size: 0.8em;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity var(--transition-fast);
+		z-index: 10;
+	}
 
-		&:hover::after,
-		&:hover::before {
-			opacity: 1;
-			pointer-events: auto;
-		}
+	&:hover::after,
+	&:hover::before {
+		opacity: 1;
+		pointer-events: auto;
 	}
 }
 
