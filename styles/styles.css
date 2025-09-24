@@ -84,10 +84,11 @@ main {
 a {
 	position: relative;
 	color: var(--accent-color-main);
-	text-decoration: underline dotted;
+	text-decoration: underline;
 
 	&[tooltip] {
 		cursor: help;
+		text-decoration: underline dotted;
 
 		&::after {
 			content: attr(tooltip);
