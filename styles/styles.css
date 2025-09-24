@@ -44,6 +44,18 @@
 	--icon-img-height: 5rem;
 	/* Have to hard-code this to make it match nav unless i want to use js lol */
 	--sidebar-width: 189px;
+
+	/* The dark mode is fucking stupid as shit */
+	/* @media (prefers-color-scheme: dark) {
+		--accent-color-main: white;
+		--accent-color-0: white;
+		--accent-color-1: white;
+		--accent-filter-0: brightness(0) invert(1);
+		--accent-filter-1: brightness(0) invert(1);
+		--accent-color-text: black;
+		--background-color: black;
+		--container-color: black;
+	} */
 }
 
 *,
@@ -313,7 +325,7 @@ figure {
 	}
 
 	& a:hover {
-		color: white;
+		color: var(--accent-color-text);
 		background: var(--accent-color-main);
 	}
 
@@ -325,24 +337,26 @@ figure {
 footer {
 	padding: var(--spacing-xs) 0;
 	background-color: var(--accent-color-main);
-	color: white;
+	color: var(--accent-color-text);
 
 	& p {
 		margin: var(--spacing-md);
 	}
 
 	& a {
-		color: white;
+		color: var(--accent-color-text);
 		border: none;
 		padding: 0 var(--spacing-md);
 	}
 
 	& a:not(:first-child) {
-		border-left: solid white var(--border-width);
+		border-left: solid var(--accent-color-text) var(--border-width);
 	}
 
-	& nav {
-		display: none;
+	@media (width <=600px) {
+		& nav {
+			display: none;
+		}
 	}
 }
 
