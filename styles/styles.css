@@ -82,8 +82,37 @@ main {
 }
 
 a {
+	position: relative;
 	color: var(--accent-color-main);
-	text-decoration: none;
+	text-decoration: underline dotted;
+
+	&[tooltip] {
+		cursor: help;
+
+		&::after {
+			content: attr(tooltip);
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: var(--accent-color-main);
+			color: var(--accent-color-text);
+			padding: 0.3em 0.6em;
+			border-radius: 0.25em;
+			white-space: nowrap;
+			font-size: 0.8em;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity var(--transition-fast);
+			z-index: 10;
+		}
+
+		&:hover::after,
+		&:hover::before {
+			opacity: 1;
+			pointer-events: auto;
+		}
+	}
 }
 
 main-header {
@@ -168,6 +197,7 @@ nav {
 	outline: var(--accent-border);
 
 	& a {
+		text-decoration: none;
 		text-align: center;
 		padding: var(--spacing-sm);
 		flex: 1;
