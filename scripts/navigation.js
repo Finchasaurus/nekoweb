@@ -1,21 +1,16 @@
-import { CONFIG, ENV } from "./config.js";
+import { CONFIG, ENV, LINKS } from "./config.js";
 
-const linkIndexMap = {
-	"": 1,
-	index: 1,
-	about: 2,
-	favorites: 3,
-	blog: 4,
-	politics: 5,
-	test: 6,
-	contact: 7,
-};
+const linkIndexMap = LINKS.reduce((map, link) => {
+	const path = link.href.replace(/\.html$/, "").replace(/^\/|\/$/g, "");
+	map[path] = link.id;
+	return map;
+}, { "": 1 });
 
 function getCssColor(index) {
-  return getComputedStyle(document.documentElement).getPropertyValue(`--accent-color-${index}`).trim();
+	return getComputedStyle(document.documentElement).getPropertyValue(`--accent-color-${index}`).trim();
 }
 function getCssFilter(index) {
-  return getComputedStyle(document.documentElement).getPropertyValue(`--accent-filter-${index}`).trim();
+	return getComputedStyle(document.documentElement).getPropertyValue(`--accent-filter-${index}`).trim();
 }
 
 const banners = [
@@ -68,7 +63,7 @@ function populateDefaults() {
 	let pathIndex = linkIndexMap[path];
 	if (pathIndex !== undefined) {
 		document.documentElement.style.setProperty("--accent-color-0", getCssColor(pathIndex));
-    	document.documentElement.style.setProperty("--accent-filter-0", getCssFilter(pathIndex));
+		document.documentElement.style.setProperty("--accent-filter-0", getCssFilter(pathIndex));
 
 		getDefaultBannerReplacement(path).then((banner) => {
 			banners[0] = banner;

@@ -139,6 +139,12 @@ main-header {
 	}
 }
 
+@media (width > 500px) {
+	mobile {
+		display: none;
+	}
+}
+
 break {
 	display: block;
 	background-color: var(--accent-color-main);
