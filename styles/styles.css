@@ -161,9 +161,19 @@ main-header {
 		padding: var(--spacing-sm);
 
 		& .icon {
+			pointer-events: auto;
+			cursor: pointer;
+			opacity: 1;
 			& img {
 				height: 3rem;
 			}
+		}
+	}
+
+	@media (width > 600px) {
+		.icon {
+			pointer-events: none;
+			cursor: default;
 		}
 	}
 }
