@@ -3,21 +3,27 @@
 	--accent-color-main: black;
 	--accent-color-0: black;
 	--accent-color-1: black;
-	--accent-color-2: #FF5584;
-	--accent-color-3: #FFA361;
-	--accent-color-4: #FDDD70;
-	--accent-color-5: #A4D25E;
-	--accent-color-6: #2CA6D6;
-	--accent-color-7: #7F76C7;
+	--accent-color-2: #ff5584;
+	--accent-color-3: #ffa361;
+	--accent-color-4: #fddd70;
+	--accent-color-5: #a4d25e;
+	--accent-color-6: #2ca6d6;
+	--accent-color-7: #7f76c7;
 
 	--accent-filter-0: brightness(0) saturate(100%);
 	--accent-filter-1: brightness(0) saturate(100%);
-	--accent-filter-2: brightness(0) saturate(100%) invert(49%) sepia(76%) saturate(2533%) hue-rotate(313deg) brightness(102%) contrast(104%);
-	--accent-filter-3: brightness(0) saturate(100%) invert(79%) sepia(14%) saturate(2325%) hue-rotate(321deg) brightness(100%) contrast(101%);
-	--accent-filter-4: brightness(0) saturate(100%) invert(95%) sepia(80%) saturate(847%) hue-rotate(321deg) brightness(102%) contrast(98%);
-	--accent-filter-5: brightness(0) saturate(100%) invert(83%) sepia(35%) saturate(614%) hue-rotate(32deg) brightness(90%) contrast(92%);
-	--accent-filter-6: brightness(0) saturate(100%) invert(83%) sepia(36%) saturate(6678%) hue-rotate(164deg) brightness(87%) contrast(93%);
-	--accent-filter-7: brightness(0) saturate(100%) invert(62%) sepia(6%) saturate(3878%) hue-rotate(206deg) brightness(79%) contrast(97%);
+	--accent-filter-2: brightness(0) saturate(100%) invert(49%) sepia(76%) saturate(2533%) hue-rotate(313deg)
+		brightness(102%) contrast(104%);
+	--accent-filter-3: brightness(0) saturate(100%) invert(79%) sepia(14%) saturate(2325%) hue-rotate(321deg)
+		brightness(100%) contrast(101%);
+	--accent-filter-4: brightness(0) saturate(100%) invert(95%) sepia(80%) saturate(847%) hue-rotate(321deg)
+		brightness(102%) contrast(98%);
+	--accent-filter-5: brightness(0) saturate(100%) invert(83%) sepia(35%) saturate(614%) hue-rotate(32deg)
+		brightness(90%) contrast(92%);
+	--accent-filter-6: brightness(0) saturate(100%) invert(83%) sepia(36%) saturate(6678%) hue-rotate(164deg)
+		brightness(87%) contrast(93%);
+	--accent-filter-7: brightness(0) saturate(100%) invert(62%) sepia(6%) saturate(3878%) hue-rotate(206deg)
+		brightness(79%) contrast(97%);
 
 	--accent-color-text: white;
 	--background-color: lightgray;
@@ -64,7 +70,6 @@
 	box-sizing: border-box;
 }
 
-
 body {
 	background: var(--background-color);
 	margin: 0;
@@ -93,7 +98,6 @@ main {
 	}
 }
 
-
 a {
 	color: var(--accent-color-main);
 	text-decoration: underline;
@@ -103,6 +107,7 @@ a {
 	position: relative;
 	cursor: help;
 	text-decoration: underline dotted;
+	display: inline-block;
 
 	&::after {
 		content: attr(tooltip);
@@ -127,6 +132,10 @@ a {
 		opacity: 1;
 		pointer-events: auto;
 	}
+}
+
+*[nowrap] {
+	white-space: nowrap;
 }
 
 main-header {
@@ -175,7 +184,7 @@ main-header {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			border: var(--accent-border)
+			border: var(--accent-border);
 		}
 	}
 
@@ -217,7 +226,7 @@ nav {
 		flex: 1;
 
 		&:hover {
-			color: var(--accent-color-text)
+			color: var(--accent-color-text);
 		}
 
 		&:not(:last-child) {
@@ -234,7 +243,7 @@ banner {
 	overflow: hidden;
 	display: flex;
 	align-items: center;
-	height: 5%
+	height: 5%;
 }
 
 scrolling-text {
@@ -261,13 +270,12 @@ content {
 	overflow: hidden;
 	flex: 1;
 
-
-	&>* {
+	& > * {
 		padding: var(--spacing-sm);
 		flex: 1;
 	}
 
-	&>sidebar {
+	& > sidebar {
 		width: var(--sidebar-width);
 		flex: 0 0 var(--sidebar-width);
 		display: flex;
@@ -280,7 +288,7 @@ content {
 		}
 	}
 
-	&>section {
+	& > section {
 		& h1 {
 			margin: 0;
 			padding: 0;
@@ -311,12 +319,12 @@ figure {
 	}
 
 	& a:has(figcaption):is(:first-child),
-	&>figcaption:is(:first-child) {
+	& > figcaption:is(:first-child) {
 		border-bottom: var(--accent-border);
 	}
 
 	& a:has(figcaption):is(:last-child),
-	&>figcaption:is(:last-child) {
+	& > figcaption:is(:last-child) {
 		border-top: var(--accent-border);
 	}
 
@@ -365,8 +373,8 @@ form {
 	flex-direction: column;
 	justify-content: center;
 
-	&>*:not(:last-child) {
-		border-bottom: var(--accent-border)
+	& > *:not(:last-child) {
+		border-bottom: var(--accent-border);
 	}
 }
 
@@ -378,7 +386,7 @@ radio-group {
 	&[horizontal] {
 		flex-direction: row;
 
-		&>*:not(:last-child) {
+		& > *:not(:last-child) {
 			border-right: var(--accent-border);
 		}
 	}
@@ -386,7 +394,7 @@ radio-group {
 	&[vertical] {
 		flex-direction: column;
 
-		&>*:not(:last-child) {
+		& > *:not(:last-child) {
 			border-bottom: var(--accent-border);
 		}
 	}
