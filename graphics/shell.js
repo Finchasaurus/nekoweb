@@ -14,24 +14,33 @@ if (!gl) {
     throw new Error("WebGL not supported");
 }
 
+const angleInstancedArraysExt = gl.getExtension('ANGLE_instanced_arrays');
+if (!angleInstancedArraysExt) {
+    alert("ANGLE_instanced_arrays extension not supported.");
+    throw new Error("ANGLE_instanced_arrays extension not supported");
+}
+
 const vertexShaderSource = `
 precision mediump float;
 
 attribute vec3 a_position;
 attribute vec2 a_uv;
 attribute vec3 a_normal;
+attribute float a_layer;
 
 uniform mat4 u_projection;
 uniform mat4 u_view;
 uniform mat4 u_model;
-uniform float u_layer;
 
 varying vec2 v_uv;
+varying float v_layer;
 
 void main() {
-    vec3 displaced = a_position + a_normal * u_layer * 0.2;
+    vec3 displaced = a_position + a_normal * a_layer * 0.2;
     gl_Position = u_projection * u_view * u_model * vec4(displaced, 1.0);
+
     v_uv = a_uv;
+    v_layer = a_layer;
 }
 `;
 
@@ -39,14 +48,15 @@ const fragmentShaderSource = `
 precision mediump float;
 
 uniform sampler2D u_texture;
-uniform float u_layer;
 uniform vec3 u_color;
+uniform float u_time;
 
 varying vec2 v_uv;
+varying float v_layer;
 
 void main() {
     vec4 texel = texture2D(u_texture, v_uv);
-    float alpha = texel.a * (1.0 - u_layer);
+    float alpha = texel.a * (1.0 - v_layer);
     gl_FragColor = vec4(texel.rgb * u_color, alpha);
 }
 `;
@@ -173,6 +183,7 @@ const uModel = gl.getUniformLocation(program, "u_model");
 const uColor = gl.getUniformLocation(program, "u_color");
 const uvLayer = gl.getUniformLocation(program, "u_layer");
 const uTexture = gl.getUniformLocation(program, "u_texture");
+const uTime = gl.getUniformLocation(program, "u_time");
 
 function perspective(fov, aspect, near, far) {
     const f = 1.0 / Math.tan(fov / 2);
@@ -227,7 +238,6 @@ function normalize(v) {
     const length = Math.hypot(v[0], v[1], v[2]);
     return [v[0] / length, v[1] / length, v[2] / length];
 }
-
 
 function loadTexture(url, onLoad) {
     const texture = gl.createTexture();
@@ -288,12 +298,27 @@ gl.uniform3f(uColor, 1.0, 1.0, 1.0);
 
 gl.enable(gl.DEPTH_TEST);
 gl.enable(gl.BLEND);
-gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
 
 
 const texture = loadTexture("../assets/cat.svg", () => requestAnimationFrame(render));
+const numShells = 20;
+const layerData = new Float32Array(numShells);
+for (let i = 0; i < numShells; i++) {
+    layerData[i] = i / numShells;
+}
 
-function render() {
+const layerBuffer = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, layerBuffer);
+gl.bufferData(gl.ARRAY_BUFFER, layerData, gl.STATIC_DRAW);
+
+const layerLoc = gl.getAttribLocation(program, "a_layer");
+gl.enableVertexAttribArray(layerLoc);
+gl.vertexAttribPointer(layerLoc, 1, gl.FLOAT, false, 0, 0);
+angleInstancedArraysExt.vertexAttribDivisorANGLE(layerLoc, 1);
+
+
+function render(time) {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     const x = cameraRadius * Math.sin(cameraPhi) * Math.cos(cameraTheta);
@@ -310,12 +335,9 @@ function render() {
     gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.uniform1i(uTexture, 0);
 
-    const numShells = 20;
-    for (let i = 0; i < numShells; i++) {
-        const layer = i / numShells;
-        gl.uniform1f(uvLayer, layer);
-        gl.drawArrays(gl.TRIANGLES, 0, 6);
-    }
+    gl.uniform1f(uTime, time * 0.001);
+
+    angleInstancedArraysExt.drawArraysInstancedANGLE(gl.TRIANGLES, 0, vertices.length / 8, numShells);
 
     requestAnimationFrame(render);
 }
