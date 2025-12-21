@@ -64,4 +64,13 @@
 		--background-color: black;
 		--container-color: black;
 	} */
+
+	--banner-text: "Default";
+	--banner-text-1: "Home";
+	--banner-text-2: "Projects";
+	--banner-text-3: "Skills";
+	--banner-text-4: "Favorites";
+	--banner-text-5: "Cats";
+	--banner-text-6: "Resources";
+	--banner-text-7: "Contact";
 }
