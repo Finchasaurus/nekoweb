@@ -28,7 +28,6 @@ accordion {
 }
 
 details {
-	cursor: pointer;
 	display: flex;
 	border: var(--accent-border);
 	overflow: hidden;
@@ -54,6 +53,7 @@ details {
 	transition: flex-grow 0.5s ease;
 
 	summary {
+		cursor: pointer;
 		padding: 1rem 1em;
 		width: 5rem;
 		flex-shrink: 0;
