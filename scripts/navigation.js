@@ -6,13 +6,6 @@ const linkIndexMap = LINKS.reduce((map, link) => {
 	return map;
 }, { "": 1 });
 
-function getCssColor(index) {
-	return getComputedStyle(document.documentElement).getPropertyValue(`--accent-color-${index}`).trim();
-}
-function getCssFilter(index) {
-	return getComputedStyle(document.documentElement).getPropertyValue(`--accent-filter-${index}`).trim();
-}
-
 const banners = [
 	"Meowbyte rocks!",
 	"Meowbyte rocks!",
@@ -25,12 +18,7 @@ const banners = [
 ];
 
 function apply(index = 0) {
-	const color = getCssColor(index);
 	const banner = banners[index];
-	const filter = getCssFilter(index);
-
-	document.documentElement.style.setProperty("--accent-color-main", color);
-	document.documentElement.style.setProperty("--accent-filter-main", filter);
 
 	const bannerText = document.querySelector("banner scrolling-text");
 	if (bannerText) {
@@ -74,9 +62,6 @@ function populateDefaults() {
 	path = stripPath(path);
 	let pathIndex = linkIndexMap[path];
 	if (pathIndex !== undefined) {
-		document.documentElement.style.setProperty("--accent-color-0", getCssColor(pathIndex));
-		document.documentElement.style.setProperty("--accent-filter-0", getCssFilter(pathIndex));
-
 		getDefaultBannerReplacement(path).then((banner) => {
 			banners[0] = banner;
 			apply();
@@ -91,7 +76,6 @@ function manageHover(link) {
 
 	link.addEventListener("mouseenter", () => {
 		apply(index);
-		link.style.backgroundColor = getCssColor(index);
 	});
 
 	link.addEventListener("mouseleave", () => {
@@ -111,7 +95,6 @@ function applyHoveredIfAny() {
 	const index = linkIndexMap[href];
 	if (index !== undefined) {
 		apply(index);
-		hoveredLink.style.backgroundColor = getCssColor(index);
 	}
 }
 
