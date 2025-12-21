@@ -23,6 +23,13 @@
 		<title>Meowbyte</title>
 	</head>
 
+	<noscript>
+		<style>
+			.js-only {
+				display: none;
+			}
+		</style>
+	</noscript>
 	<body page="home">
 		<main>
 			<main-header accent="color">
@@ -80,10 +87,10 @@
 							</radio-group>
 						</form>
 					</figure>
-					<figure id="music-player">
+					<figure id="music-player" class="js-only">
 						<figcaption title="#1 Emil fan">Emil - Sacrifice</figcaption>
 
-						<audio src="assets/Emil Sacrifice.mp3"></audio>
+						<audio src="/assets/Emil_Sacrifice.mp3" preload="metadata"></audio>
 
 						<div class="controls">
 							<button id="backward">⏮</button>
@@ -91,8 +98,8 @@
 							<button id="forward">⏭</button>
 						</div>
 					</figure>
-					<iframe src="graphics/shell.html"></iframe>
-					<script>
+					<iframe src="graphics/shell.html" class="js-only"></iframe>
+					<!-- <script>
 						const iframe = document.getElementById("iframe");
 						iframe.onload = () => {
 							const color = getComputedStyle(document.documentElement)
@@ -100,7 +107,7 @@
 								.trim();
 							iframe.contentWindow.postMessage({ accentColor: color }, "*");
 						};
-					</script>
+					</script> -->
 				</sidebar>
 				<section>
 					<h1>Welcome to Meowbyte</h1>
@@ -164,6 +171,6 @@
 				<p>Meowbyte - Where code meets cats 🐱</p>
 			</footer>
 		</main>
-		<script src="scripts/music-player.js" type="module"></script>
+		<script src="scripts/music-player.js"></script>
 	</body>
 </html>
