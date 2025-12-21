@@ -25,8 +25,24 @@
 
 	<body>
 		<main>
-			<main-header class="populate header" accent="color"></main-header>
-			<nav class="populate navigation menu"></nav>
+			<main-header accent="color">
+				<span>
+					Meow<span title="Why did the byte break up with the bit? Because it needed some space!">byte</span>
+				</span>
+				<label for="cat-toggle" class="icon" title="Meow">
+					<img src="assets/cat.svg" accent="filter" style="cursor: pointer" />
+				</label>
+				<input type="checkbox" id="cat-toggle" />
+			</main-header>
+			<nav>
+				<a href="index.html" title="Go to the homepage">Home</a>
+				<a href="projects.html" title="Check out my projects">Projects</a>
+				<a href="skills.html" title="See my skills and expertise">Skills</a>
+				<a href="favorites.html" title="See my favourite things">Favorites</a>
+				<a href="cats.html" title="Cats">Cats</a>
+				<a href="resources.html" title="Useful resources and links">Resources</a>
+				<a href="contact.html" title="Get in touch with me">Contact</a>
+			</nav>
 			<banner accent="background"><scrolling-text></scrolling-text></banner>
 			<content accent="color">
 				<sidebar>
@@ -67,12 +83,12 @@
 					<figure id="music-player">
 						<figcaption title="#1 Emil fan">Emil - Sacrifice</figcaption>
 
-						<audio class="audio" src="assets/Emil Sacrifice.mp3"></audio>
+						<audio src="assets/Emil Sacrifice.mp3"></audio>
 
 						<div class="controls">
-							<button class="backward">⏮</button>
-							<button class="play-pause">▶</button>
-							<button class="forward">⏭</button>
+							<button id="backward">⏮</button>
+							<button id="play-pause">▶</button>
+							<button id="forward">⏭</button>
 						</div>
 					</figure>
 					<iframe src="graphics/shell.html"></iframe>
@@ -134,9 +150,20 @@
 					</accordion>
 				</section>
 			</content>
-			<footer class="populate footer" accent="background"></footer>
+			<footer accent="background">
+				<p>© 2025 Meowbyte. All rights reserved.</p>
+				<nav>
+					<a href="index.html" title="Go to the homepage">Home</a>
+					<a href="projects.html" title="Check out my projects">Projects</a>
+					<a href="skills.html" title="See my skills and expertise">Skills</a>
+					<a href="favorites.html" title="See my favourite things">Favorites</a>
+					<a href="cats.html" title="Cats">Cats</a>
+					<a href="resources.html" title="Useful resources and links">Resources</a>
+					<a href="contact.html" title="Get in touch with me">Contact</a>
+				</nav>
+				<p>Meowbyte - Where code meets cats 🐱</p>
+			</footer>
 		</main>
-		<script src="scripts/populate.js" type="module"></script>
 		<script src="scripts/navigation.js" type="module"></script>
 		<script src="scripts/music-player.js" type="module"></script>
 	</body>

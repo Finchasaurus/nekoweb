@@ -1,4 +1,12 @@
-import { CONFIG, ENV, LINKS } from "./config.js";
+export const LINKS = [
+	{ href: "index.html", title: "Go to the homepage", text: "Home", id: 1 },
+	{ href: "projects.html", title: "Check out my projects", text: "Projects", id: 2 },
+	{ href: "skills.html", title: "See my skills and expertise", text: "Skills", id: 3 },
+	{ href: "favorites.html", title: "See my favourite things", text: "Favorites", id: 4 },
+	{ href: "cats.html", title: "Cats", text: "Cats", id: 5 },
+	{ href: "resources.html", title: "Useful resources and links", text: "Resources", id: 6 },
+	{ href: "contact.html", title: "Get in touch with me", text: "Contact", id: 7 },
+];
 
 const linkIndexMap = LINKS.reduce((map, link) => {
 	const path = link.href.replace(/\.html$/, "").replace(/^\/|\/$/g, "");

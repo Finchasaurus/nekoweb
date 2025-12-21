@@ -1,10 +1,10 @@
 const players = document.querySelectorAll("#music-player");
 
 players.forEach((player) => {
-	const audio = player.querySelector(".audio");
-	const playPauseButton = player.querySelector(".play-pause");
-	const forwardButton = player.querySelector(".forward");
-	const backwardButton = player.querySelector(".backward");
+	const audio = player.querySelector("audio");
+	const playPauseButton = player.querySelector("#play-pause");
+	const forwardButton = player.querySelector("#forward");
+	const backwardButton = player.querySelector("#backward");
 
 	playPauseButton.addEventListener("click", () => {
 		if (audio.paused) {

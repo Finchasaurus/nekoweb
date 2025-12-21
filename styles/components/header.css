@@ -8,7 +8,7 @@ main-header {
 	justify-content: space-between;
 	align-items: center;
 
-	& .icon {
+	& > label {
 		display: flex;
 
 		& img {
@@ -20,7 +20,7 @@ main-header {
 		font-size: 6ch;
 		padding: var(--spacing-sm);
 
-		& .icon {
+		& > label {
 			pointer-events: auto;
 			cursor: pointer;
 			opacity: 1;
@@ -31,7 +31,7 @@ main-header {
 	}
 
 	@media (width > 600px) {
-		.icon {
+		& > label {
 			pointer-events: none;
 			cursor: default;
 		}

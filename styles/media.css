@@ -1,5 +1,5 @@
 @media (width <=600px) {
-	.menu {
+	main nav {
 		background-color: var(--container-color);
 		visibility: hidden;
 		position: absolute;
@@ -18,7 +18,7 @@
 		}
 	}
 
-	body:has(#cat-toggle:checked) .menu {
+	body:has(#cat-toggle:checked) main nav {
 		visibility: visible;
 	}
 }

@@ -35,9 +35,9 @@ radio-group {
 			background-color: var(--accent-color-main);
 			color: var(--accent-color-text);
 		}
-
-		& input {
-			display: none;
-		}
 	}
+}
+
+input {
+	display: none;
 }
