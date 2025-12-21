@@ -1,0 +1,23 @@
+[accent="filter"] {
+	filter: var(--accent-filter-main);
+}
+[accent="color"] {
+	color: var(--accent-color-main);
+}
+[accent="background"] {
+	background-color: var(--accent-color-main);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+*[nowrap] {
+	white-space: nowrap;
+}
+
+img[aspect-one] {
+	aspect-ratio: 1;
+}

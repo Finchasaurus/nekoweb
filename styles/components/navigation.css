@@ -1,0 +1,20 @@
+nav {
+	display: flex;
+	justify-content: space-around;
+	outline: var(--accent-border);
+
+	& a {
+		text-decoration: none;
+		text-align: center;
+		padding: var(--spacing-sm);
+		flex: 1;
+
+		&:hover {
+			color: var(--accent-color-text);
+		}
+
+		&:not(:last-child) {
+			border-right: var(--accent-border);
+		}
+	}
+}

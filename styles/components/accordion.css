@@ -28,6 +28,7 @@ accordion {
 }
 
 details {
+	cursor: pointer;
 	display: flex;
 	border: var(--accent-border);
 	overflow: hidden;
