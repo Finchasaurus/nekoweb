@@ -24,6 +24,8 @@
 		brightness(87%) contrast(93%);
 	--accent-filter-7: brightness(0) saturate(100%) invert(62%) sepia(6%) saturate(3878%) hue-rotate(206deg)
 		brightness(79%) contrast(97%);
+	--accent-filter-white: brightness(0) invert(1);
+	--accent-filter-main: var(--accent-filter-0);
 
 	--accent-color-text: white;
 	--background-color: lightgray;
@@ -314,7 +316,8 @@ img[aspect-one] {
 	aspect-ratio: 1;
 }
 
-figure {
+figure,
+details {
 	margin: 0;
 	display: flex;
 	flex-direction: column;
@@ -454,4 +457,14 @@ radio-group {
 			border-right: var(--accent-border);
 		}
 	}
+}
+
+img[accent="filter"] {
+	filter: var(--accent-filter-main);
+}
+img[accent="color"] {
+	color: var(--accent-color-main);
+}
+img[accent="background"] {
+	background-color: var(--accent-color-main);
 }

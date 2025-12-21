@@ -16,6 +16,7 @@ document.querySelectorAll(".populate.header").forEach((header) => {
 	iconCheckbox.style.display = "none";
 
 	const iconImg = document.createElement("img");
+	iconImg.setAttribute("accent", "filter");
 	iconImg.src = "assets/cat.svg";
 	iconImg.className = "accent";
 	iconImg.style.cursor = "pointer";

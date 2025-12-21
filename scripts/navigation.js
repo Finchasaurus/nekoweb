@@ -30,15 +30,11 @@ function apply(index = 0) {
 	const filter = getCssFilter(index);
 
 	document.documentElement.style.setProperty("--accent-color-main", color);
+	document.documentElement.style.setProperty("--accent-filter-main", filter);
 
 	const bannerText = document.querySelector("banner scrolling-text");
 	if (bannerText) {
 		bannerText.textContent = banner;
-	}
-
-	document.querySelectorAll("img.accent").forEach((img) => (img.style.filter = filter));
-	if (index === 0) {
-		document.querySelectorAll(".filter-remove").forEach((img) => (img.style.filter = ""));
 	}
 }
 

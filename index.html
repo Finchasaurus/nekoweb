@@ -1,114 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles/styles.css" />
+		<link rel="stylesheet" href="styles/accordion.css" />
+		<link rel="icon" type="image/x-icon" href="assets/shinji.png" />
+		<title>Meowbyte</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="styles/styles.css" />
-	<link rel="icon" type="image/x-icon" href="assets/shinji.png" />
-	<title>Meowbyte</title>
-</head>
+	<body>
+		<main>
+			<main-header class="populate header"></main-header>
+			<nav class="populate navigation menu"></nav>
+			<banner><scrolling-text></scrolling-text></banner>
+			<content>
+				<sidebar>
+					<figure>
+						<img src="assets/shinji.png" aspect-one accent="filter" />
+						<a href="/favorites.html#shinji_ikari">
+							<figcaption>Shinji Ikari</figcaption>
+						</a>
+					</figure>
+					<figure>
+						<figcaption>What type of visitor are you?</figcaption>
+						<form method="post" action="https://poll.pollcode.com/51119526" target="_blank">
+							<radio-group vertical role="radiogroup">
+								<label for="answer511195261">
+									<input type="radio" name="answer" value="1" id="answer511195261" />
+									Curious Lurker
+								</label>
+								<label for="answer511195262">
+									<input type="radio" name="answer" value="2" id="answer511195262" />
+									Fellow Developer
+								</label>
+								<label for="answer511195263">
+									<input type="radio" name="answer" value="3" id="answer511195263" />
+									Cat Enthusiast
+								</label>
+								<label for="answer511195264">
+									<input type="radio" name="answer" value="4" id="answer511195264" />
+									Accidental Visitor (help)
+								</label>
+							</radio-group>
 
-<body>
-	<main>
-		<main-header class="populate header"></main-header>
-		<nav class="populate navigation menu"></nav>
-		<banner><scrolling-text></scrolling-text></banner>
-		<content>
-			<sidebar>
-				<figure>
-					<img src="assets/shinji.png" aspect-one class="accent" />
-					<a href="/favorites.html#shinji_ikari">
-						<figcaption>Shinji Ikari</figcaption>
-					</a>
-				</figure>
-				<figure>
-					<figcaption>What type of visitor are you?</figcaption>
-					<form method="post" action="https://poll.pollcode.com/51119526" target="_blank">
-						<radio-group vertical role="radiogroup">
-							<label for="answer511195261">
-								<input type="radio" name="answer" value="1" id="answer511195261" />
-								Curious Lurker
-							</label>
-							<label for="answer511195262">
-								<input type="radio" name="answer" value="2" id="answer511195262" />
-								Fellow Developer
-							</label>
-							<label for="answer511195263">
-								<input type="radio" name="answer" value="3" id="answer511195263" />
-								Cat Enthusiast
-							</label>
-							<label for="answer511195264">
-								<input type="radio" name="answer" value="4" id="answer511195264" />
-								Accidental Visitor (help)
-							</label>
-						</radio-group>
+							<radio-group horizontal role="radiogroup">
+								<label><input type="submit" value="Vote" />Submit</label>
+								<label><input type="submit" name="view" value="View" />View</label>
+							</radio-group>
+						</form>
+					</figure>
+					<figure id="music-player">
+						<figcaption title="#1 Emil fan">Emil - Sacrifice</figcaption>
 
-						<radio-group horizontal role="radiogroup">
-							<label><input type="submit" value="Vote" />Submit</label>
-							<label><input type="submit" name="view" value="View" />View</label>
-						</radio-group>
-					</form>
-				</figure>
-				<figure id="music-player">
-					<figcaption title="#1 Emil fan">Emil - Sacrifice</figcaption>
+						<audio class="audio" src="assets/Emil Sacrifice.mp3"></audio>
 
-					<audio class="audio" src="assets/Emil Sacrifice.mp3"></audio>
-
-					<div class="controls">
-						<button class="backward">⏮</button>
-						<button class="play-pause">▶</button>
-						<button class="forward">⏭</button>
-					</div>
-				</figure>
-				<iframe src="graphics/shell.html"></iframe>
-				<script>
-					const iframe = document.getElementById("iframe");
-					iframe.onload = () => {
-						const color = getComputedStyle(document.documentElement)
-							.getPropertyValue("--accent-color-main")
-							.trim();
-						iframe.contentWindow.postMessage({ accentColor: color }, "*");
-					};
-				</script>
-			</sidebar>
-			<section>
-				<h1>Welcome to Meowbyte</h1>
-				<p>
-					Hallo! I'm Finch, a <span title="08/22/2004">21-year-old</span> developer based in
-					<span tooltip="I realised this was a bad idea to tell even though its a big city">
-						########## </span>. I have 5 different A-identities: Aromantic, Asexual, Agender, Autistic, and
-					ADHD. I love
-					<a href="/cats.html" tooltip="meow meow i love kityt cats">cats</a>,
-					<a href="/favorites.html#games" tooltip="vidya gamiya" nowrap>video games</a>, learning,
-					programming, and all things <span title="especially computer graphics">computer science</span>.
-				</p>
-				<p>
-					This site is a fun side project where I share my thoughts, projects, and random musings while
-					practicing my web dev skills. Feel free to poke around and discover some hidden surprises and
-					silly things.
-				</p>
-				<p>
-					I'm trying to limit my reliance on javascript; I encourage anyone to poke around and help me
-					figure out ways to use less.
-				</p>
-				<mobile>
-					<break horizontal></break>
-					<p>Mobile only zone:</p>
+						<div class="controls">
+							<button class="backward">⏮</button>
+							<button class="play-pause">▶</button>
+							<button class="forward">⏭</button>
+						</div>
+					</figure>
+					<iframe src="graphics/shell.html"></iframe>
+					<script>
+						const iframe = document.getElementById("iframe");
+						iframe.onload = () => {
+							const color = getComputedStyle(document.documentElement)
+								.getPropertyValue("--accent-color-main")
+								.trim();
+							iframe.contentWindow.postMessage({ accentColor: color }, "*");
+						};
+					</script>
+				</sidebar>
+				<section>
+					<h1>Welcome to Meowbyte</h1>
 					<p>
-						This site was made and designed for computers but I've hacked together mobile support for
-						the basics. I don't know how much content is inaccessible though. I tried.
+						Hallo! I'm Finch, a <span title="08/22/2004">21-year-old</span> developer based in
+						<span tooltip="I realised this was a bad idea to tell even though its a big city">
+							########## </span
+						>. I have 5 different A-identities: Aromantic, Asexual, Agender, Autistic, and ADHD. I love
+						<a href="/cats.html" tooltip="meow meow i love kityt cats">cats</a>,
+						<a href="/favorites.html#games" tooltip="vidya gamiya" nowrap>video games</a>, learning,
+						programming, and all things <span title="especially computer graphics">computer science</span>.
 					</p>
-					<p>P.S. The kitty cat icon opens the navigation menu. I hid it to not clutter your screen.</p>
-				</mobile>
-			</section>
-		</content>
-		<footer class="populate footer"></footer>
-	</main>
-	<script src="scripts/populate.js" type="module"></script>
-	<script src="scripts/navigation.js" type="module"></script>
-	<script src="scripts/music-player.js" type="module"></script>
-</body>
-
+					<p>
+						This site is a fun side project where I share my thoughts, projects, and random musings while
+						practicing my web dev skills. Feel free to poke around and discover some hidden surprises and
+						silly things.
+					</p>
+					<p>
+						I'm trying to limit my reliance on javascript; I encourage anyone to poke around and help me
+						figure out ways to use less.
+					</p>
+					<mobile>
+						<break horizontal></break>
+						<p>Mobile only zone:</p>
+						<p>
+							This site was made and designed for computers but I've hacked together mobile support for
+							the basics. I don't know how much content is inaccessible though. I tried.
+						</p>
+						<p>P.S. The kitty cat icon opens the navigation menu. I hid it to not clutter your screen.</p>
+					</mobile>
+					<accordion horizontal>
+						<details name="media">
+							<summary>
+								<img src="assets/2B.png" accent="filter" />
+							</summary>
+						</details>
+						<details name="media" open>
+							<summary>
+								<img src="assets/9S.png" accent="filter" />
+							</summary>
+						</details>
+						<details name="media">
+							<summary>
+								<img src="assets/A2.png" accent="filter" />
+							</summary>
+						</details>
+					</accordion>
+				</section>
+			</content>
+			<footer class="populate footer"></footer>
+		</main>
+		<script src="scripts/populate.js" type="module"></script>
+		<script src="scripts/navigation.js" type="module"></script>
+		<script src="scripts/music-player.js" type="module"></script>
+	</body>
 </html>
