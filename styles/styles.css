@@ -66,6 +66,16 @@
 	} */
 }
 
+[accent="filter"] {
+	filter: var(--accent-filter-main);
+}
+[accent="color"] {
+	color: var(--accent-color-main);
+}
+[accent="background"] {
+	background-color: var(--accent-color-main);
+}
+
 *,
 *::before,
 *::after {
@@ -76,7 +86,6 @@ body {
 	background: var(--background-color);
 	margin: 0;
 	overflow-x: hidden;
-	color: var(--accent-color-main);
 
 	display: flex;
 	flex-direction: row;
@@ -103,6 +112,14 @@ main {
 a {
 	color: var(--accent-color-main);
 	text-decoration: underline;
+}
+
+img {
+	filter: var(--accent-filter-main);
+}
+
+button {
+	color: var(--accent-color-main);
 }
 
 *[tooltip] {
@@ -249,7 +266,6 @@ nav {
 
 banner {
 	padding: var(--spacing-sm);
-	background-color: var(--accent-color-main);
 	color: var(--accent-color-text);
 	position: relative;
 	overflow: hidden;
@@ -341,10 +357,6 @@ details {
 		border-top: var(--accent-border);
 	}
 
-	& a {
-		color: var(--accent-color-main);
-	}
-
 	& a:hover {
 		color: var(--accent-color-text);
 		background: var(--accent-color-main);
@@ -357,7 +369,6 @@ details {
 
 footer {
 	padding: var(--spacing-xs) 0;
-	background-color: var(--accent-color-main);
 	color: var(--accent-color-text);
 
 	& p {
@@ -440,7 +451,6 @@ radio-group {
 
 	& button {
 		background-color: var(--container-color);
-		color: var(--accent-color-main);
 		border: none;
 		padding: var(--spacing-sm);
 		cursor: pointer;
@@ -457,14 +467,4 @@ radio-group {
 			border-right: var(--accent-border);
 		}
 	}
-}
-
-img[accent="filter"] {
-	filter: var(--accent-filter-main);
-}
-img[accent="color"] {
-	color: var(--accent-color-main);
-}
-img[accent="background"] {
-	background-color: var(--accent-color-main);
 }
