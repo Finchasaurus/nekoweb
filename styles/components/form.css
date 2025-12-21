@@ -6,6 +6,9 @@ radio-group {
 	&[horizontal] {
 		flex-direction: row;
 
+		& > * {
+			border: none;
+		}
 		& > *:not(:last-child) {
 			border-right: var(--accent-border);
 		}
@@ -15,7 +18,7 @@ radio-group {
 		flex-direction: column;
 
 		& > *:not(:last-child) {
-			border-bottom: var(--accent-border);
+			/* border-bottom: var(--accent-border); */
 		}
 	}
 
@@ -24,6 +27,7 @@ radio-group {
 		cursor: pointer;
 		background: var(--container-color);
 		flex: 1;
+		border-bottom: var(--accent-border);
 
 		&:has(input:checked),
 		&:hover,
