@@ -291,6 +291,15 @@ window.addEventListener("wheel", (e) => {
 
 const projMat = perspective(Math.PI / 4, canvas.width / canvas.height, 0.1, 100);
 const modelMat = identity();
+let accentColor = [0.0, 0.0, 0.0];
+
+window.addEventListener("message", (e) => {
+    if (e.data.accentColor) {
+        const rgb = e.data.accentColor.match(/\d+/g).map(Number);
+        accentColor = [rgb[0] / 255, rgb[1] / 255, rgb[2] / 255];
+        gl.uniform3fv(uColor, accentColor);
+    }
+});
 
 gl.uniformMatrix4fv(uProjection, false, projMat);
 gl.uniformMatrix4fv(uModel, false, modelMat);
