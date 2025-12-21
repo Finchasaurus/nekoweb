@@ -70,6 +70,15 @@ details {
 		}
 	}
 
+	* {
+		margin: 0;
+	}
+	> p {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
 	::details-content {
 		flex: 1 1 auto;
 		content-visibility: hidden;
@@ -87,6 +96,10 @@ details {
 		::details-content {
 			content-visibility: visible;
 			opacity: 1;
+		}
+
+		p {
+			flex-wrap: wrap;
 		}
 	}
 	&:not([open]) summary img {
