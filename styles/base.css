@@ -119,3 +119,14 @@ content {
 		}
 	}
 }
+
+input[type="text"],
+input[type="password"] {
+	display: block;
+	border: var(--accent-border);
+	width: 100%;
+
+	&:focus {
+		outline: none;
+	}
+}
