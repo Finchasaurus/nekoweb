@@ -110,11 +110,10 @@ content {
 	}
 
 	& > section {
-		& h1 {
+		h1 {
 			margin: 0;
 			padding: 0;
 		}
-
 		@media (width <=600px) {
 			margin: var(--spacing-sm);
 		}

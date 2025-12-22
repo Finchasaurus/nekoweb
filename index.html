@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="styles/components/accordion.css" />
 		<link rel="stylesheet" href="styles/components/music-player.css" />
 		<link rel="stylesheet" href="styles/components/banner.css" />
+		<link rel="stylesheet" href="styles/components/secret.css" />
 
 		<link rel="icon" type="image/x-icon" href="assets/shinji.png" />
 		<title>Meowbyte</title>
@@ -146,31 +147,38 @@
 						</p>
 						<p>P.S. The kitty cat icon opens the navigation menu. I hid it to not clutter your screen.</p>
 					</mobile>
-					<accordion horizontal>
-						<details name="media">
-							<summary>
-								<img src="assets/2B.png" />
-							</summary>
-							<p>
-								"Everything that lives is designed to end. We are perpetually trapped in a never-ending
-								spiral of life and death.
-							</p>
-						</details>
-						<details name="media" open>
-							<summary>
-								<img src="assets/9S.png" />
-							</summary>
-							<p>"We're not built to last forever. But every moment… every fight… it matters."</p>
-						</details>
-						<details name="media">
-							<summary>
-								<img src="assets/A2.png" />
-							</summary>
-							<p>
-								"I don't care about the past or the future. I only care about what I can do right now."
-							</p>
-						</details>
-					</accordion>
+					<section class="secret-section">
+						<accordion horizontal>
+							<details name="media">
+								<summary>
+									<img src="assets/2B.png" />
+								</summary>
+								<p>
+									"Everything that lives is designed to end. We are perpetually trapped in a
+									never-ending spiral of life and death.
+								</p>
+							</details>
+							<details name="media" open>
+								<summary>
+									<img src="assets/9S.png" />
+								</summary>
+								<p class="secret-show">This is the secret</p>
+								<p class="secret-hide">
+									"We're not built to last forever. But every moment… every fight… it matters."
+								</p>
+							</details>
+							<details name="media">
+								<summary>
+									<img src="assets/A2.png" />
+								</summary>
+								<p>
+									"I don't care about the past or the future. I only care about what I can do right
+									now."
+								</p>
+							</details>
+						</accordion>
+						<input type="password" id="secret" pattern="YoRHa" required />
+					</section>
 				</section>
 			</content>
 			<footer accent="background">
