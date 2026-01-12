@@ -5,7 +5,7 @@ banner {
 	overflow: hidden;
 	display: flex;
 	align-items: center;
-	height: 5%;
+	height: 25px;
 }
 
 scrolling-text {
