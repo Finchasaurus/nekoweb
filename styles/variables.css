@@ -65,14 +65,14 @@
 		--container-color: black;
 	} */
 
-	--banner-text: "Default";
-	--banner-text-1: "Home";
-	--banner-text-2: "Projects";
-	--banner-text-3: "Skills";
-	--banner-text-4: "Favorites";
-	--banner-text-5: "Cats";
-	--banner-text-6: "Resources";
-	--banner-text-7: "Contact";
+	--banner-text: "";
+	--banner-text-1: "h-hi";
+	--banner-text-2: "i made these";
+	--banner-text-3: "i can do stuff";
+	--banner-text-4: "lmao its my favs";
+	--banner-text-5: "cat department";
+	--banner-text-6: "mostly stuff ive written about im ngl";
+	--banner-text-7: "y-you want to t-talk to me??";
 }
 
 body[page="home"] {
