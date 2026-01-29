@@ -21,15 +21,16 @@ jobs:
 
                   find . -type f \
                       ! -path "./.git/*" \
-                      ! -path "./.github/*" | while read file; do
+                      ! -path "./.github/*" \
+                      ! -name "*.zip" | while read file; do
 
                       relpath="${file#./}"
                       dirpath="$(dirname "$relpath")"
                       
                       if [ "$dirpath" = "." ]; then
-                        uploadpath="/test"
+                        uploadpath="/meowbyte.nekoweb.org"
                       else
-                        uploadpath="/test/$dirpath"
+                        uploadpath="/meowbyte.nekoweb.org/$dirpath"
                       fi
 
                       echo "Uploading $relpath to $uploadpath"

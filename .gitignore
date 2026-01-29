@@ -1,4 +1,2 @@
-# Until i'm not lazy and write an actual build and upload script i'm manually building and uploading lmao
-build.zip
-
 .VSCodeCounter/
+*.zip
