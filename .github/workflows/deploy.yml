@@ -8,43 +8,15 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        name: deploy2nekoweb
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v4
 
-        steps:
-            - name: Checkout repo
-              uses: actions/checkout@v4
-
-            - name: Install zip
-              run: sudo apt-get update && sudo apt-get install -y zip
-
-            - name: Create zip of site
-              run: |
-                  ZIP_FILE="site.zip"
-                  zip -r "$ZIP_FILE" . \
-                    -x ".git/*" ".github/*" "*.zip"
-
-            - name: Upload zip to Nekoweb
-              env:
-                  NEKOWEB_API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
-              run: |
-                  set -e
-                  ZIP_FILE="site.zip"
-
-                  UPLOAD_ID=$(curl -sSf \
-                    -H "Authorization: $NEKOWEB_API_KEY" \
-                    https://nekoweb.org/api/files/big/create | jq -r '.id')
-
-                  echo "Big upload ID: $UPLOAD_ID"
-
-                  curl -sSf -H "Authorization: $NEKOWEB_API_KEY" \
-                    -F "file=@$ZIP_FILE" \
-                    -F "id=$UPLOAD_ID" \
-                    https://nekoweb.org/api/files/big/append
-
-                  curl -sSf -H "Authorization: $NEKOWEB_API_KEY" \
-                    -d "id=$UPLOAD_ID" \
-                    -d "pathname=/uploads/$ZIP_FILE" \
-                    https://nekoweb.org/api/files/big/move
-
-                  curl -sSf -H "Authorization: $NEKOWEB_API_KEY" \
-                    -d "path=/" \
-                    https://nekoweb.org/api/files/import/$UPLOAD_ID
+        - name: deploy2nekoweb
+          uses: indiefellas/deploy2nekoweb@main
+          with:
+              nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
+              nekoweb-domain: "meowbyte.nekoweb.org"
+              nekoweb-username: "meowbyte"
+              directory: "."
