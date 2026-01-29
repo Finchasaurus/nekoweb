@@ -26,9 +26,9 @@ jobs:
                     relpath="${file#./}"
                     echo "Uploading $relpath"
 
-                    curl -sSf \
-                      -H "Authorization: $NEKOWEB_API_KEY" \
-                      -F "pathname=meowbyte.nekoweb.org/" \
-                      -F "file=@$file;filename=$relpath" \
-                      https://nekoweb.org/api/files/upload
+                    curl --request POST \
+                      -url https://nekoweb.org/api/files/upload \
+                      -header "Authorization: $NEKOWEB_API_KEY" \
+                      -form pathname=/test \
+                      --form files=@"$file"
                   done
