@@ -27,8 +27,8 @@ jobs:
                     echo "Uploading $relpath"
 
                     curl --request POST \
-                      -url https://nekoweb.org/api/files/upload \
-                      -header "Authorization: $NEKOWEB_API_KEY" \
-                      -form pathname=/test \
+                      --url https://nekoweb.org/api/files/upload \
+                      --header "Authorization: $NEKOWEB_API_KEY" \
+                      --form pathname=/test \
                       --form files=@"$file"
                   done
