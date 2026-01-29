@@ -19,4 +19,4 @@ jobs:
                   nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
                   nekoweb-domain: "meowbyte.nekoweb.org"
                   nekoweb-username: "meowbyte"
-                  directory: "."
+                  directory: "/"
