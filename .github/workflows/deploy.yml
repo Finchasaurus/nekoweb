@@ -7,16 +7,28 @@ on:
 
 jobs:
     deploy:
-        name: deploy2nekoweb
         runs-on: ubuntu-latest
+
         steps:
-            - name: Checkout
+            - name: Checkout repo
               uses: actions/checkout@v4
 
-            - name: deploy2nekoweb
-              uses: indiefellas/deploy2nekoweb@main
-              with:
-                  nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
-                  nekoweb-domain: "meowbyte.nekoweb.org"
-                  nekoweb-username: "meowbyte"
-                  directory: "/"
+            - name: Upload site to Nekoweb
+              env:
+                  NEKOWEB_API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
+              run: |
+                  set -e
+
+                  for file in $(find . -type f \
+                    ! -path "./.git/*" \
+                    ! -path "./.github/*"); do
+
+                    relpath="${file#./}"
+                    echo "Uploading $relpath"
+
+                    curl -sSf \
+                      -H "Authorization: $NEKOWEB_API_KEY" \
+                      -F "pathname=/" \
+                      -F "file=@$file;filename=$relpath" \
+                      https://nekoweb.org/api/files/upload
+                  done
