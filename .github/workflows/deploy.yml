@@ -28,7 +28,7 @@ jobs:
 
                     curl -sSf \
                       -H "Authorization: $NEKOWEB_API_KEY" \
-                      -F "pathname=/" \
+                      -F "pathname=meowbyte.nekoweb.org/" \
                       -F "file=@$file;filename=$relpath" \
                       https://nekoweb.org/api/files/upload
                   done
