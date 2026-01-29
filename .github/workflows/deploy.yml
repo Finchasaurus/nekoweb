@@ -26,11 +26,13 @@ jobs:
                       relpath="${file#./}"
                       dirpath="$(dirname "$relpath")"
                       
-                      if [ "$dirpath" = "." ] then
-                      uploadpath="/test"
+                      if [ "$dirpath" = "." ]; then
+                        uploadpath="/test"
                       else
-                      uploadpath="/test/$dirpath"
+                        uploadpath="/test/$dirpath"
                       fi
+
+                      echo "Uploading $relpath to $uploadpath"
 
                       curl --request POST \
                       --url https://nekoweb.org/api/files/upload \
