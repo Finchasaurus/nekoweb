@@ -12,6 +12,8 @@ jobs:
         steps:
             - name: Checkout repo
               uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
             - name: Upload site to Nekoweb
               env:
@@ -38,7 +40,7 @@ jobs:
 
                     case "$status" in
                         A|M)
-                            [-f "$file"] || continue
+                            [ -f "$file" ] || continue
                             echo "Uploading $file to $uploadpath"
 
                             curl --request POST \
