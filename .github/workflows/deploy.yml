@@ -19,7 +19,7 @@ jobs:
               run: |
                   set -e
 
-                  for . -type f \
+                  find . -type f \
                       ! -path "./.git/*" \
                       ! -path "./.github/*" | while read file; do
 
