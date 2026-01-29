@@ -19,16 +19,22 @@ jobs:
               run: |
                   set -e
 
-                  for file in $(find . -type f \
-                    ! -path "./.git/*" \
-                    ! -path "./.github/*"); do
+                  for . -type f \
+                      ! -path "./.git/*" \
+                      ! -path "./.github/*" | while read file; do
 
-                    relpath="${file#./}"
-                    echo "Uploading $relpath"
+                      relpath="${file#./}"
+                      dirpath="$(dirname "$relpath")"
+                      
+                      if [ "$dirpath" = "." ] then
+                      uploadpath="/test"
+                      else
+                      uploadpath="/test/$dirpath"
+                      fi
 
-                    curl --request POST \
+                      curl --request POST \
                       --url https://nekoweb.org/api/files/upload \
                       --header "Authorization: $NEKOWEB_API_KEY" \
-                      --form pathname=/test \
+                      --form pathname=$uploadpath \
                       --form files=@"$file"
                   done
