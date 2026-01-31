@@ -133,3 +133,7 @@ input[type="password"] {
 		outline: none;
 	}
 }
+
+input {
+	display: none;
+}
