@@ -30,13 +30,6 @@ a {
 	text-decoration: underline;
 }
 
-img:not([accent="none"]) {
-	filter: var(--accent-filter-main);
-}
-[accent="none"] img {
-	filter: none;
-}
-
 button {
 	color: var(--accent-color-main);
 }

@@ -7,6 +7,16 @@
 [accent="background"] {
 	background-color: var(--accent-color-main);
 }
+[accent="none"] {
+	color: inherit;
+	background-color: inherit;
+	filter: none;
+}
+body:has(*[accent="none"]) {
+	color: inherit;
+	background-color: inherit;
+	filter: none;
+}
 
 *,
 *::before,
